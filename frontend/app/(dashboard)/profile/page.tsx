@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { api } from '@/lib/api';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Code, ShieldCheck, Trash2, Code2, Sparkles, GraduationCap, Trophy, Cpu } from 'lucide-react';
 import { useLanguage } from '@/lib/providers/LanguageProvider';
 
 export default function ProfilePage() {
+    const router = useRouter();
     const [user, setUser] = useState<any>(null);
     const [skills, setSkills] = useState<any[]>([]);
     const [newSkill, setNewSkill] = useState({ name: '', type: 'HAVE' });
