@@ -50,9 +50,7 @@ export default function Sidebar() {
             <div className="flex flex-col flex-1 h-full">
                 {/* Brand Logo Area */}
                 <div className={`flex items-center gap-3 px-6 pb-8 ${collapsed ? 'justify-center px-0' : ''}`}>
-                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-[0_8px_16px_rgba(0,112,243,0.3)] flex-shrink-0 border border-white/20">
-                        <Zap size={22} className="text-white" />
-                    </div>
+                    <img src="/logo.png" alt="SkillSwap Logo" className="w-11 h-11 object-contain flex-shrink-0 drop-shadow-[0_8px_16px_rgba(0,112,243,0.3)]" />
                     <AnimatePresence>
                         {!collapsed && (
                             <motion.span

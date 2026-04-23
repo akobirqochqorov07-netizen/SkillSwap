@@ -44,9 +44,7 @@ export default function RegisterPage() {
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-accent/10 via-background to-background" />
 
                 <div className="relative z-10 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-glass">
-                        <Zap size={20} className="text-white" />
-                    </div>
+                    <img src="/logo.png" alt="SkillSwap Logo" className="w-10 h-10 object-contain drop-shadow-md flex-shrink-0" />
                     <span className="font-bold text-2xl tracking-tight text-white">SkillSwap</span>
                 </div>
 
@@ -67,9 +65,7 @@ export default function RegisterPage() {
             <div className="flex-1 flex flex-col justify-center items-center p-6 sm:p-12 relative overflow-hidden">
                 {/* Mobile Header */}
                 <div className="lg:hidden absolute top-8 left-8 flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                        <Zap size={16} className="text-white" />
-                    </div>
+                    <img src="/logo.png" alt="SkillSwap Logo" className="w-10 h-10 object-contain drop-shadow-md flex-shrink-0" />
                     <span className="font-bold text-xl tracking-tight text-white">SkillSwap</span>
                 </div>
 
