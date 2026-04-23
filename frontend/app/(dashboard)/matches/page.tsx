@@ -18,8 +18,12 @@ export default function MatchesPage() {
             try {
                 const data = await api.matches.getMyMatches();
                 setMatches(data);
-            } catch (err) {
-                console.error(err);
+            } catch (err: any) {
+                if (err.message === 'Unauthorized' || err.message === 'Something went wrong') {
+                    router.push('/login');
+                } else {
+                    console.error(err);
+                }
             } finally {
                 setLoading(false);
             }

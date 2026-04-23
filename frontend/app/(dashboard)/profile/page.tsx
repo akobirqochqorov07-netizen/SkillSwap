@@ -22,8 +22,12 @@ export default function ProfilePage() {
                 setUser(u);
                 const s = await api.skills.getAll();
                 setSkills(s);
-            } catch (err) {
-                console.error(err);
+            } catch (err: any) {
+                if (err.message === 'Unauthorized' || err.message === 'Something went wrong') {
+                    router.push('/login');
+                } else {
+                    console.error("Failed to load profile", err);
+                }
             } finally {
                 setLoading(false);
             }

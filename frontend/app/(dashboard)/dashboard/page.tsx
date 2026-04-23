@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { api } from '@/lib/api';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Users, ChevronRight, Zap } from 'lucide-react';
 import { useLanguage } from '@/lib/providers/LanguageProvider';
@@ -10,14 +11,19 @@ export default function DashboardPage() {
     const [matches, setMatches] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const { t } = useLanguage();
+    const router = useRouter();
 
     useEffect(() => {
         const fetchMatches = async () => {
             try {
                 const data = await api.matches.discover();
                 setMatches(data);
-            } catch (err) {
-                console.error(err);
+            } catch (err: any) {
+                if (err.message === 'Unauthorized' || err.message === 'Something went wrong') {
+                    router.push('/login');
+                } else {
+                    console.error(err);
+                }
             } finally {
                 setLoading(false);
             }

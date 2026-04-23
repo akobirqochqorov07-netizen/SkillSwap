@@ -43,8 +43,12 @@ function MessagesContent() {
                         setSelectedMatch(matchToSelect);
                     }
                 }
-            } catch (err) {
-                console.error("Failed to load contacts", err);
+            } catch (err: any) {
+                if (err.message === 'Unauthorized' || err.message === 'Something went wrong') {
+                    router.push('/login');
+                } else {
+                    console.error("Failed to load contacts", err);
+                }
             } finally {
                 setLoadingContacts(false);
             }
